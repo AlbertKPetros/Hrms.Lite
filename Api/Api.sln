@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Api", "01-Api", "{42CA7743-EE95-4873-BB25-B10B76EEBB67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Shared", "02-Shared", "{13BE7063-CFE6-4AA9-8662-889B13CDF687}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Repository", "03-Repository", "{7E6C489F-9A78-4002-837E-BBEFBE68A574}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Infrastructure", "04-Infrastructure", "{0D65AEEF-5D72-4EBC-AD15-BE5E03EE8A1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hrms.Lite.Shared", "Hrms.Lite.Shared\Hrms.Lite.Shared.csproj", "{763997CC-BCC6-4CB4-865C-5FD5166D9E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hrms.Lite.Repository", "Hrms.Lite.Repository\Hrms.Lite.Repository.csproj", "{97823500-EF08-450F-946E-861A36B5EB7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hrms.Lite.Infrastructure", "Hrms.Lite.Infrastructure\Hrms.Lite.Infrastructure.csproj", "{A01C18EA-A558-4D80-BD77-89BF99D590A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hrms.Lite.Api", "Hrms.Lite.Api\Hrms.Lite.Api.csproj", "{147BFCE4-44A6-4904-852B-D1C72CE45125}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{763997CC-BCC6-4CB4-865C-5FD5166D9E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763997CC-BCC6-4CB4-865C-5FD5166D9E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763997CC-BCC6-4CB4-865C-5FD5166D9E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763997CC-BCC6-4CB4-865C-5FD5166D9E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97823500-EF08-450F-946E-861A36B5EB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97823500-EF08-450F-946E-861A36B5EB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97823500-EF08-450F-946E-861A36B5EB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97823500-EF08-450F-946E-861A36B5EB7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A01C18EA-A558-4D80-BD77-89BF99D590A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A01C18EA-A558-4D80-BD77-89BF99D590A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A01C18EA-A558-4D80-BD77-89BF99D590A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A01C18EA-A558-4D80-BD77-89BF99D590A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{147BFCE4-44A6-4904-852B-D1C72CE45125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147BFCE4-44A6-4904-852B-D1C72CE45125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147BFCE4-44A6-4904-852B-D1C72CE45125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147BFCE4-44A6-4904-852B-D1C72CE45125}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{763997CC-BCC6-4CB4-865C-5FD5166D9E0A} = {13BE7063-CFE6-4AA9-8662-889B13CDF687}
+		{97823500-EF08-450F-946E-861A36B5EB7A} = {7E6C489F-9A78-4002-837E-BBEFBE68A574}
+		{A01C18EA-A558-4D80-BD77-89BF99D590A6} = {0D65AEEF-5D72-4EBC-AD15-BE5E03EE8A1E}
+		{147BFCE4-44A6-4904-852B-D1C72CE45125} = {42CA7743-EE95-4873-BB25-B10B76EEBB67}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0C810A4-C4FA-40AC-8759-4577D7C52000}
+	EndGlobalSection
+EndGlobal
