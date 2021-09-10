@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hrms.Lite.Services\Hrms.Lite.Services.csproj" />
+    <ProjectReference Include="..\Hrms.Lite.Shared\Hrms.Lite.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

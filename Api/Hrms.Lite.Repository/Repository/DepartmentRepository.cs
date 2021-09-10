@@ -18,14 +18,27 @@ namespace Hrms.Lite.Repository.Repository
         public async Task<IList<Department>> GetList()
         {
             await Task.Delay(1000);
-            return new List<Department>();
+            var dummyData = new List<Department>();
+            for (var i = 0; i < 100; i++)
+            {
+                dummyData.Add(new Department
+                {
+                    Name = $"Name_{i}",
+                    UniqueID = Guid.NewGuid()
+                });
+            }
+            return dummyData;
         }
 
         public async Task<Department> GetDetails(Guid guid)
         {
             /*Remove this delay, just for mocking async task*/
             await Task.Delay(1000);
-            return new Department();
+            return new Department
+            {
+                Name = $"Name",
+                UniqueID = Guid.NewGuid()
+            };
         }
 
         public async Task<ResponseEntity> Save(Department input)

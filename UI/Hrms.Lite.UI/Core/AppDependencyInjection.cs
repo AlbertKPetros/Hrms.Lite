@@ -1,19 +1,17 @@
-﻿using Hrms.Lite.Repository.IRepository;
-using Hrms.Lite.Repository.Repository;
+﻿using Hrms.Lite.Services.IServices;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Hrms.Lite.Api.Core
+namespace Hrms.Lite.UI.Core
 {
     public static class AppDependencyInjection
     {
         public static void AddDependencyInjectionServices(this IServiceCollection services)
         {
             #region General
-            services.AddTransient<ISqlConnectionProvider, SqlConnectionProvider>();
+            services.AddTransient<IServiceBase, ServiceBase>();
             #endregion
 
             #region Master
-            services.AddTransient<IDepartmentRepository, DepartmentRepository>();
             #endregion
 
             #region Databank
