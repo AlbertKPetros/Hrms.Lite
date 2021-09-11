@@ -1,4 +1,5 @@
 ﻿using Hrms.Lite.Services.IServices;
+using Hrms.Lite.Services.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Hrms.Lite.UI.Core
@@ -12,6 +13,7 @@ namespace Hrms.Lite.UI.Core
             #endregion
 
             #region Master
+            services.AddTransient<IDepartmentService, DepartmentService>();
             #endregion
 
             #region Databank

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 
 namespace Hrms.Lite.Shared.Master
 {
@@ -6,5 +7,6 @@ namespace Hrms.Lite.Shared.Master
     {
         public Guid UniqueID { get; set; }
         public string Name { get; set; }
+        public IFormFile Logo { get; set; }
     }
 }
