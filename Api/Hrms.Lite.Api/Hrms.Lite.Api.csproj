@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Hrms.Lite.Infrastructure\Hrms.Lite.Infrastructure.csproj" />
     <ProjectReference Include="..\Hrms.Lite.Repository\Hrms.Lite.Repository.csproj" />
     <ProjectReference Include="..\Hrms.Lite.Shared\Hrms.Lite.Shared.csproj" />

@@ -32,6 +32,8 @@ namespace Hrms.Lite.Api
                 );
             });
 
+            services.AddSwaggerGen();
+
             services.Configure<AppSettings>(Configuration);
         }
 
@@ -46,6 +48,12 @@ namespace Hrms.Lite.Api
             app.UseRouting();
 
             app.UseCors("ApiCorsPolicy");
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hrms Lite v1");
+            });
 
             app.UseAuthorization();
 
