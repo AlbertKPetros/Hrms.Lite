@@ -1,6 +1,7 @@
 ﻿using Hrms.Lite.Services.IServices;
 using Hrms.Lite.Shared.Master;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace Hrms.Lite.UI.Areas.Master.Controllers
@@ -19,9 +20,9 @@ namespace Hrms.Lite.UI.Areas.Master.Controllers
             return View(await _service.GetList());
         }
 
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id, Guid identifier, string mode)
         {
-            return View();
+            return View(await _service.GetDetails(id, identifier, mode));
         }
 
         public ActionResult Create()
@@ -30,14 +31,21 @@ namespace Hrms.Lite.UI.Areas.Master.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Department input)
+        public async Task<ActionResult> Create(Department input)
         {
+            var response = await _service.Create(input);
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult CreateWithFile(Department input)
+        public ActionResult CreateWithFile()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateWithFile(Department input)
+        {
+            var response = await _service.CreateWithFile(input);
             return RedirectToAction("Index");
         }
     }

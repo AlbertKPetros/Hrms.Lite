@@ -24,13 +24,19 @@ namespace Hrms.Lite.Api.Controllers.Masters
         }
 
         [HttpGet("Details")]
-        public async Task<IActionResult> GetDetails(Guid guid)
+        public async Task<IActionResult> GetDetails(int id, Guid identifier, string mode)
         {
-            return Ok(await _repo.GetDetails(guid));
+            return Ok(await _repo.GetDetails(identifier));
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Save([FromBody] Department input)
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([FromBody] Department input)
+        {
+            return Ok(await _repo.Save(input));
+        }
+
+        [HttpPost("CreateWithFile")]
+        public async Task<IActionResult> CreateWithFile([FromForm] Department input)
         {
             return Ok(await _repo.Save(input));
         }

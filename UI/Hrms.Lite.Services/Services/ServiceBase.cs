@@ -1,12 +1,10 @@
 ﻿using Hrms.Lite.Services.IServices;
 using Hrms.Lite.Shared.General;
-using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Net.Http.Formatting;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 
@@ -20,7 +18,7 @@ public class ServiceBase : IServiceBase
         _httpClient = new HttpClient();
     }
 
-    public async Task<T> Get<T>(string url)
+    public async Task<T> GetAsync<T>(string url)
     {
         url = $"{_baseUrl}{url}";
         T result = default(T);
@@ -39,10 +37,10 @@ public class ServiceBase : IServiceBase
         return result;
     }
 
-    public async Task<T> PostRequest<T>(string apiUrl, T postObject)
+    public async Task<TResponse> PostAsync<TResponse, TData>(string apiUrl, TData postObject)
     {
         apiUrl = $"{_baseUrl}{apiUrl}";
-        T result = default(T);
+        TResponse result = default(TResponse);
 
         var response = await _httpClient.PostAsync(apiUrl, postObject, new JsonMediaTypeFormatter()).ConfigureAwait(false);
 
@@ -53,40 +51,25 @@ public class ServiceBase : IServiceBase
             if (x.IsFaulted)
                 throw x.Exception;
 
-            result = JsonConvert.DeserializeObject<T>(x.Result);
+            result = JsonConvert.DeserializeObject<TResponse>(x.Result);
 
         });
 
         return result;
     }
 
-    public async Task<T> PostFormDataAsync<T>(string url, T data)
+    public async Task<TResponse> PostFormDataAsync<TResponse>(string url, MultipartFormDataContent data)
     {
         url = $"{_baseUrl}{url}";
-        var content = new MultipartFormDataContent();
-        T result = default(T);
+        TResponse result = default(TResponse);
 
-        foreach (var prop in data.GetType().GetProperties())
-        {
-            var value = prop.GetValue(data);
-            if (value is FormFile)
-            {
-                var file = value as FormFile;
-                content.Add(new StreamContent(file.OpenReadStream()), prop.Name, file.FileName);
-                content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data") { Name = prop.Name, FileName = file.FileName };
-            }
-            else
-            {
-                content.Add(new StringContent(JsonConvert.SerializeObject(value)), prop.Name);
-            }
-        }
-        var response = await _httpClient.PostAsync(url, content).ConfigureAwait(false);
+        var response = await _httpClient.PostAsync(url, data).ConfigureAwait(false);
         await response.Content.ReadAsStringAsync().ContinueWith((Task<string> x) =>
         {
             if (x.IsFaulted)
                 throw x.Exception;
 
-            result = JsonConvert.DeserializeObject<T>(x.Result);
+            result = JsonConvert.DeserializeObject<TResponse>(x.Result);
 
         });
 

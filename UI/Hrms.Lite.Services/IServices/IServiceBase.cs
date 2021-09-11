@@ -1,12 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Hrms.Lite.Services.IServices
 {
     public interface IServiceBase
     {
-        Task<T> Get<T>(string url);
-        Task<T> PostRequest<T>(string apiUrl, T postObject);
-        Task<T> PostFormDataAsync<T>(string url, T data);
+        Task<T> GetAsync<T>(string url);
+        Task<TResponse> PostAsync<TResponse, TData>(string apiUrl, TData postObject);
+        Task<TResponse> PostFormDataAsync<TResponse>(string url, MultipartFormDataContent data);
 
     }
 }
